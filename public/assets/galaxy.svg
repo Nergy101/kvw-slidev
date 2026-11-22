@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="gcore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+  <g filter="url(#blur)">
+    <ellipse cx="200" cy="200" rx="180" ry="60" fill="none" stroke="#a78bfa" stroke-width="26" opacity="0.5" transform="rotate(-25 200 200)"/>
+    <ellipse cx="200" cy="200" rx="150" ry="48" fill="none" stroke="#60a5fa" stroke-width="22" opacity="0.45" transform="rotate(20 200 200)"/>
+    <ellipse cx="200" cy="200" rx="110" ry="34" fill="none" stroke="#f472b6" stroke-width="18" opacity="0.4" transform="rotate(-10 200 200)"/>
+  </g>
+  <circle cx="200" cy="200" r="55" fill="url(#gcore)"/>
+  <g fill="#ffffff">
+    <circle cx="60" cy="80" r="2.5"/><circle cx="330" cy="60" r="2"/><circle cx="350" cy="300" r="2.5"/>
+    <circle cx="50" cy="320" r="2"/><circle cx="300" cy="350" r="1.8"/><circle cx="120" cy="40" r="1.8"/>
+    <circle cx="370" cy="180" r="2"/><circle cx="30" cy="200" r="2.2"/>
+  </g>
+</svg>

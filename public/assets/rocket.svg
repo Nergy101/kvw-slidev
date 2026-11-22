@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 340">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e2e8f0"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="45%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path class="flame" d="M100 250 C82 285 84 315 100 338 C116 315 118 285 100 250 Z" fill="url(#flame)"/>
+  <path d="M100 255 C92 280 93 300 100 316 C107 300 108 280 100 255 Z" fill="#fde047" opacity="0.9"/>
+  <path d="M62 200 C40 225 38 255 44 272 L70 250 Z" fill="#ef4444"/>
+  <path d="M138 200 C160 225 162 255 156 272 L130 250 Z" fill="#ef4444"/>
+  <path d="M100 20 C130 60 138 120 138 190 C138 225 128 250 100 250 C72 250 62 225 62 190 C62 120 70 60 100 20 Z" fill="url(#body)"/>
+  <path d="M100 20 C116 44 126 72 131 100 L69 100 C74 72 84 44 100 20 Z" fill="#ef4444"/>
+  <circle cx="100" cy="140" r="22" fill="#1e3a8a"/>
+  <circle cx="100" cy="140" r="17" fill="#38bdf8"/>
+  <circle cx="93" cy="133" r="6" fill="#e0f2fe" opacity="0.9"/>
+  <rect x="62" y="185" width="76" height="12" fill="#ef4444" opacity="0.85"/>
+</svg>
