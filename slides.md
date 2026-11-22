@@ -30,7 +30,6 @@ css: unocss
   background-size: 550px 550px;
   animation: stardrift 240s linear infinite;
 }
-/* tweede sterrenlaag: twinkelt en drijft de andere kant op */
 .slidev-page::after {
   content: '';
   position: absolute;
@@ -46,7 +45,6 @@ css: unocss
   background-size: 380px 380px;
   animation: stardrift2 160s linear infinite reverse, twinkle 3.5s ease-in-out infinite alternate;
 }
-/* vallende ster */
 .slidev-page::before {
   content: '';
   position: absolute;
@@ -66,7 +64,7 @@ css: unocss
   text-shadow: 0 0 26px rgba(253, 230, 138, 0.5);
 }
 
-/* ===== ✨ hulpelementen ===== */
+/* ===== ✨ hulpelementen & animaties ===== */
 .title-gradient {
   background: linear-gradient(90deg, #fde68a, #f472b6, #818cf8, #34d399, #fde68a);
   background-size: 300% 100%;
@@ -90,10 +88,125 @@ css: unocss
 .float-slow  { animation: floaty 9s ease-in-out infinite; }
 .float-fast  { animation: floaty 4s ease-in-out infinite; }
 .spin-slow   { animation: spin 42s linear infinite; }
+.spin-fast   { animation: spin 8s linear infinite; }
 .pop         { animation: pop 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+.bounce      { animation: bounceIn 0.55s cubic-bezier(0.2, 1.8, 0.4, 1) both; }
 .twinkle-img { animation: twinkle 2.4s ease-in-out infinite alternate; }
 .wave  { transform-box: fill-box; transform-origin: 20% 90%; animation: wave 1.6s ease-in-out infinite; }
 .flame { transform-box: fill-box; transform-origin: 50% 0%; animation: flick 0.35s ease-in-out infinite alternate; }
+.wiggle { animation: wiggle 1.4s ease-in-out infinite; }
+.pulse-glow { animation: pulseGlow 2.5s ease-in-out infinite; }
+
+/* vallende ster extra (per slide te plaatsen) */
+.shooting {
+  position: absolute;
+  width: 130px; height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ffffff, transparent);
+  animation: shoot 7s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* warp-ring achter het logo */
+.warp {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 36rem; height: 36rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0 38%, rgba(129, 140, 248, 0.55) 50%, transparent 62% 100%);
+  animation: spin 5s linear infinite;
+  filter: blur(3px);
+  -webkit-mask: radial-gradient(circle, transparent 60%, #000 66%);
+  mask: radial-gradient(circle, transparent 60%, #000 66%);
+  pointer-events: none;
+}
+
+/* zon-puls ring */
+.sun-pulse {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid rgba(253, 224, 71, 0.7);
+  animation: sunPulse 2.6s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes sunPulse {
+  from { transform: scale(0.8); opacity: 1; }
+  to   { transform: scale(1.6); opacity: 0; }
+}
+
+/* maan cirkelt om de aarde */
+.orbit-ring {
+  position: absolute;
+  inset: -3.2rem;
+  animation: spin 10s linear infinite;
+  pointer-events: none;
+}
+.orbit-ring img {
+  position: absolute;
+  top: -1.1rem; left: 50%;
+  width: 2.6rem;
+  margin-left: -1.3rem;
+  animation: spin 10s linear infinite reverse;
+}
+
+/* raket lanceren bij LIFTOFF */
+.launch { animation: launch 1.8s cubic-bezier(0.5, -0.2, 0.7, 0.4) forwards; }
+@keyframes launch {
+  0%   { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-75vh) scale(0.55) rotate(-10deg); opacity: 0; }
+}
+
+/* UFO vliegt over het scherm */
+.ufo-fly { animation: ufo-fly 16s linear infinite; }
+@keyframes ufo-fly {
+  from { transform: translateX(-35vw) translateY(0); }
+  50%  { transform: translateX(40vw) translateY(-30px); }
+  to   { transform: translateX(125vw) translateY(0); }
+}
+
+/* zwart gat met draaiende accretion disk */
+.blackhole {
+  position: relative;
+  width: 210px; height: 210px;
+  border-radius: 50%;
+  background: #000;
+  box-shadow: 0 0 70px 12px rgba(168, 85, 247, 0.55), inset 0 0 40px 10px rgba(88, 28, 135, 0.9);
+}
+.blackhole::before {
+  content: '';
+  position: absolute;
+  inset: -34px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg, #f59e0b 60deg, #ef4444 110deg, #a78bfa 180deg, #38bdf8 250deg, transparent 320deg);
+  animation: spin 3.2s linear infinite;
+  filter: blur(7px);
+  -webkit-mask: radial-gradient(circle, transparent 52%, #000 58%);
+  mask: radial-gradient(circle, transparent 52%, #000 58%);
+}
+.blackhole::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  animation: spin 5s linear infinite reverse;
+}
+
+/* confetti */
+.confetti span {
+  position: absolute;
+  top: -20px;
+  width: 10px; height: 16px;
+  border-radius: 2px;
+  animation: confetti-fall linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+@keyframes confetti-fall {
+  to { transform: translateY(115vh) rotate(720deg); }
+}
 
 @keyframes stardrift  { from { background-position: 0 0; } to { background-position: 550px 550px; } }
 @keyframes stardrift2 { from { background-position: 0 0; } to { background-position: -380px 380px; } }
@@ -108,8 +221,14 @@ css: unocss
 @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
 @keyframes spin   { to { transform: rotate(360deg); } }
 @keyframes pop    { from { transform: scale(0.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes bounceIn { from { transform: scale(0.4) translateY(20px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
 @keyframes wave   { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-18deg); } }
 @keyframes flick  { from { transform: scaleY(0.92); } to { transform: scaleY(1.08); } }
+@keyframes wiggle { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+@keyframes pulseGlow {
+  0%, 100% { text-shadow: 0 0 18px rgba(253, 230, 138, 0.4); }
+  50%      { text-shadow: 0 0 46px rgba(253, 230, 138, 0.95); }
+}
 </style>
 
 ---
@@ -119,33 +238,36 @@ transition: fade
 ---
 
 <div class="nebula" style="--c1: rgba(238,143,32,.16); --c2: rgba(45,76,155,.4); --c3: rgba(100,179,51,.14);"></div>
+<div class="warp"></div>
 <img src="/assets/kvw-logo.svg" class="w-[30rem] max-w-[80%] mx-auto float-slow relative" />
 
-<div class="text-4xl mt-10 relative"><span class="title-gradient font-bold">Thema: RUIMTE!</span> 🚀🌌</div>
+<div class="text-4xl mt-10 relative"><span class="title-gradient font-bold pulse-glow">Thema: RUIMTE!</span> 🚀🌌</div>
 <div class="text-xl mt-4 opacity-80 relative">Een week vol avonturen, spelletjes, sport en knutselen!</div>
 
 <img src="/assets/star.svg" class="twinkle-img absolute w-10" style="top: 12%; left: 12%;" />
 <img src="/assets/star.svg" class="twinkle-img absolute w-8" style="top: 20%; right: 14%; animation-delay: .9s;" />
 <img src="/assets/star.svg" class="twinkle-img absolute w-12" style="bottom: 14%; right: 10%; animation-delay: 1.6s;" />
 <img src="/assets/star.svg" class="twinkle-img absolute w-7" style="bottom: 20%; left: 16%; animation-delay: .4s;" />
+<div class="shooting" style="top: 30%; animation-delay: 2s;"></div>
+<div class="shooting" style="top: 65%; animation-delay: 5.5s;"></div>
 
 <!--
-Hoofdslide met het officiële KVW De Meern-logo (kvwdemeern.nl).
-Daarna volgt de titel van het ruimtethema.
+Hoofdslide met het officiële KVW De Meern-logo (kvwdemeern.nl) + warp-ring.
 -->
 
 ---
 
 # 🚀 KVW De Meern
 
-## <span class="title-gradient">THEMA: RUIMTE!</span> 🌌
+## <span class="title-gradient pulse-glow">THEMA: RUIMTE!</span> 🌌
 
 <img src="/assets/galaxy.svg" class="spin-slow absolute w-72 opacity-70" style="top: 8%; right: 6%;" />
 <img src="/assets/rocket.svg" class="float absolute w-40" style="bottom: 10%; left: 8%;" />
 <img src="/assets/star.svg" class="twinkle-img absolute w-10" style="top: 18%; left: 22%;" />
 <img src="/assets/star.svg" class="twinkle-img absolute w-7" style="bottom: 24%; right: 20%; animation-delay: 1.2s;" />
+<div class="shooting" style="top: 45%; animation-delay: 3s;"></div>
 
-<div class="mt-10 text-xl opacity-80">Reis mee door het heelal!</div>
+<div class="mt-10 text-xl opacity-80" v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 400 } }">Reis mee door het heelal!</div>
 
 <!--
 Welkom bij de KVW! Vraag de kinderen: wie is er wel eens naar de maan geweest? (grapje!)
@@ -164,12 +286,12 @@ transition: slide-left
 Wat gaan we doen?
 
 <div class="grid grid-cols-2 gap-8 mt-8 text-2xl text-left w-3/4 mx-auto">
-<div v-click>🔭 Sterren kijken</div>
-<div v-click>🪐 Planeten ontdekken</div>
-<div v-click>🚀 Een raket lanceren</div>
-<div v-click>🎮 Groepsspelletjes</div>
-<div v-click>🎨 Ruimte knutselen</div>
-<div v-click>🏆 Quiz & diploma</div>
+<div v-motion :initial="{ x: -80, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 100 } }">🔭 Sterren kijken</div>
+<div v-motion :initial="{ x: -80, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 250 } }">🪐 Planeten ontdekken</div>
+<div v-motion :initial="{ x: 80, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 400 } }">🚀 Een raket lanceren</div>
+<div v-motion :initial="{ x: 80, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 550 } }">🎮 Groepsspelletjes</div>
+<div v-motion :initial="{ y: 40, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 700 } }">🎨 Ruimte knutselen</div>
+<div v-motion :initial="{ y: 40, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 850 } }">🏆 Quiz & diploma</div>
 </div>
 
 ---
@@ -179,11 +301,12 @@ transition: slide-up
 # 🤔 Wat is de ruimte eigenlijk?
 
 <div class="nebula" style="--c1: rgba(139,92,246,.4); --c2: rgba(236,72,153,.25); --c3: rgba(59,130,246,.2);"></div>
+<div class="shooting" style="top: 20%; animation-delay: 1s;"></div>
 
 <div class="text-3xl mt-10 space-y-8 relative">
-<div v-click>✨ Alles boven de dampkring van de aarde</div>
-<div v-click>🌍 Daar zweven planeten, manen en sterren</div>
-<div v-click>🕳️ En er is <span class="text-yellow-300 font-bold">helemaal geen lucht</span> — dus geen geluid!</div>
+<div v-motion :initial="{ scale: 0.6, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 150 } }">✨ Alles boven de dampkring van de aarde</div>
+<div v-motion :initial="{ scale: 0.6, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 400 } }">🌍 Daar zweven planeten, manen en sterren</div>
+<div v-motion :initial="{ scale: 0.6, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 650 } }">🕳️ En er is <span class="text-yellow-300 font-bold">helemaal geen lucht</span> — dus geen geluid!</div>
 </div>
 
 <!--
@@ -196,18 +319,19 @@ transition: zoom
 
 # ☀️ Eerst: onze eigen ster
 
-## De <span class="title-gradient">Zon</span>
+## De <span class="title-gradient pulse-glow">Zon</span>
 
 <div class="nebula" style="--c1: rgba(251,191,36,.3); --c2: rgba(249,115,22,.25);"></div>
-<img src="/assets/sun.svg" class="float absolute w-56" style="top: 16%; right: 8%;" />
-
-<div class="grid grid-cols-[1fr_auto] gap-10 mt-6 items-center w-4/5 mx-auto text-left text-2xl space-y-4">
-<div>
-<div v-click>🔥 Een enorme, hete bal gas</div>
-<div v-click>📏 109× zo groot als de aarde</div>
-<div v-click>🌡️ 15 miljoen graden in het midden!</div>
-<div v-click>💡 Zonder zon geen leven op aarde</div>
+<div class="absolute" style="top: 16%; right: 8%;">
+  <div class="sun-pulse w-56 h-56" style="top: 0; left: 0;"></div>
+  <img src="/assets/sun.svg" class="float w-56 relative" />
 </div>
+
+<div class="text-left text-2xl space-y-4 mt-6 w-3/5">
+<div v-motion :initial="{ x: -60, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 150 } }">🔥 Een enorme, hete bal gas</div>
+<div v-motion :initial="{ x: -60, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 350 } }">📏 109× zo groot als de aarde</div>
+<div v-motion :initial="{ x: -60, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 550 } }">🌡️ 15 miljoen graden in het midden!</div>
+<div v-motion :initial="{ x: -60, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 750 } }">💡 Zonder zon geen leven op aarde</div>
 </div>
 
 <!--
@@ -246,12 +370,18 @@ transition: slide-up
 # 🌍 Onze aarde
 
 <div class="nebula" style="--c1: rgba(34,197,94,.25); --c2: rgba(59,130,246,.35);"></div>
-<img src="/assets/earth.svg" class="float absolute w-64" style="top: 50%; right: 6%; transform: translateY(-50%);" />
+
+<div class="absolute" style="top: 50%; right: 6%; transform: translateY(-50%);">
+  <div class="relative inline-block">
+    <img src="/assets/earth.svg" class="float w-64" />
+    <div class="orbit-ring"><img src="/assets/moon.svg" /></div>
+  </div>
+</div>
 
 <div class="text-left text-2xl space-y-5 mt-8 w-3/5">
 <div v-click>💧 71% water — de blauwe planeet</div>
 <div v-click>🌱 De enige planeet waarvan we weten dat er leven is</div>
-<div v-click>🌙 Met één trouwe maan</div>
+<div v-click>🌙 Met één trouwe maan die om ons heen cirkelt!</div>
 </div>
 
 ---
@@ -263,7 +393,16 @@ transition: fade
 <div class="nebula" style="--c1: rgba(203,213,225,.22); --c2: rgba(99,102,241,.3);"></div>
 <img src="/assets/moon.svg" class="float-slow absolute w-60" style="top: 50%; right: 7%; transform: translateY(-50%);" />
 
-<div class="text-5xl mt-6">🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔</div>
+<div class="text-5xl mt-6">
+<span class="twinkle-img inline-block">🌕</span>
+<span class="twinkle-img inline-block" style="animation-delay:.3s">🌖</span>
+<span class="twinkle-img inline-block" style="animation-delay:.6s">🌗</span>
+<span class="twinkle-img inline-block" style="animation-delay:.9s">🌘</span>
+<span class="twinkle-img inline-block" style="animation-delay:1.2s">🌑</span>
+<span class="twinkle-img inline-block" style="animation-delay:1.5s">🌒</span>
+<span class="twinkle-img inline-block" style="animation-delay:1.8s">🌓</span>
+<span class="twinkle-img inline-block" style="animation-delay:2.1s">🌔</span>
+</div>
 
 <div class="text-2xl mt-8 space-y-5 text-left w-3/5">
 <div v-click>🚶 384.400 km van de aarde vandaan</div>
@@ -286,6 +425,7 @@ transition: slide-left
 <img src="/assets/star.svg" class="twinkle-img absolute w-9" style="top: 30%; right: 14%; animation-delay: .6s;" />
 <img src="/assets/star.svg" class="twinkle-img absolute w-11" style="bottom: 16%; left: 18%; animation-delay: 1.1s;" />
 <img src="/assets/star.svg" class="twinkle-img absolute w-7" style="bottom: 30%; right: 8%; animation-delay: 1.7s;" />
+<div class="shooting" style="top: 55%; animation-delay: 4s;"></div>
 
 <div class="text-2xl mt-10 space-y-6">
 <div v-click>⭐ Een ster is een enorme hete gasbol, net als de zon</div>
@@ -295,6 +435,27 @@ transition: slide-left
 
 <!--
 Vraag: wie kent het sterrenbeeld de Grote Beer (de steelpan)?
+-->
+
+---
+transition: zoom
+---
+
+# 🕳️ Zwarte gaten
+
+<div class="nebula" style="--c1: rgba(88,28,135,.5); --c2: rgba(249,115,22,.25); --c3: rgba(56,189,248,.15);"></div>
+
+<div class="flex items-center justify-center gap-16 mt-6">
+  <div class="blackhole float-slow"></div>
+  <div class="text-left text-2xl space-y-5 w-2/5">
+    <div v-motion :initial="{ x: 80, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 200 } }">🕳️ Een plek waar de zwaartekracht héél sterk is</div>
+    <div v-motion :initial="{ x: 80, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 450 } }">💫 Alles wat te dichtbij komt, wordt opgeslokt</div>
+    <div v-motion :initial="{ x: 80, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 700 } }">✨ Zelfs licht kan niet ontsnappen!</div>
+  </div>
+</div>
+
+<!--
+In het midden van ons melkwegstelsel zit een superzwaar zwart gat: Sagittarius A*.
 -->
 
 ---
@@ -320,19 +481,19 @@ transition: zoom
 # 🚀 TELLEN MAAR: de raketlancering!
 
 <div class="nebula" style="--c1: rgba(249,115,22,.3); --c2: rgba(239,68,68,.22); --c3: rgba(253,224,71,.15);"></div>
-<img src="/assets/rocket.svg" class="float-fast absolute w-52" style="bottom: 6%; left: 6%;" />
+<img v-click src="/assets/rocket.svg" class="launch absolute w-52" style="bottom: 6%; left: 6%;" />
 
 <div class="text-center relative">
-<div class="text-6xl font-bold mt-16">
-<span v-click>3...</span>
-<span v-click>2...</span>
-<span v-click>1...</span>
-<span v-click class="pop text-orange-400 inline-block" style="text-shadow: 0 0 30px rgba(251,146,60,.8);">LIFTOFF! 🎉</span>
+<div class="text-7xl font-bold mt-14">
+<span v-click class="bounce inline-block">3...</span>
+<span v-click class="bounce inline-block">2...</span>
+<span v-click class="bounce inline-block">1...</span>
+<span v-click class="pop text-orange-400 inline-block" style="text-shadow: 0 0 34px rgba(251,146,60,.9);">LIFTOFF! 🎉</span>
 </div>
 </div>
 
 <!--
-Tel samen met de hele groep af en schreeuw LIFTOFF!
+Tel samen met de hele groep af — bij LIFTOFF vliegt de raket het scherm uit!
 -->
 
 ---
@@ -364,13 +525,13 @@ transition: slide-up
 # ❓ Ruimte-quiz!
 
 <div class="nebula" style="--c1: rgba(163,230,53,.2); --c2: rgba(139,92,246,.3);"></div>
-<img src="/assets/alien.svg" class="float absolute w-48" style="top: 50%; right: 8%; transform: translateY(-50%);" />
+<img src="/assets/alien.svg" class="wiggle absolute w-48" style="top: 50%; right: 8%; transform: translateY(-50%);" />
 
 <div class="text-2xl mt-6 space-y-6 text-left w-3/4">
-<div v-click>1️⃣ Hoeveel planeten draaien om de zon? <span class="text-yellow-300 font-bold">(8)</span></div>
-<div v-click>2️⃣ Hoe heet de rode planeet? <span class="text-yellow-300 font-bold">(Mars)</span></div>
-<div v-click>3️⃣ Kun je in de ruimte geluid horen? <span class="text-yellow-300 font-bold">(Nee!)</span></div>
-<div v-click>4️⃣ Welke planeet heeft ringen? <span class="text-yellow-300 font-bold">(Saturnus)</span></div>
+<div v-click>1️⃣ Hoeveel planeten draaien om de zon? <span class="bounce text-yellow-300 font-bold inline-block">(8)</span></div>
+<div v-click>2️⃣ Hoe heet de rode planeet? <span class="bounce text-yellow-300 font-bold inline-block">(Mars)</span></div>
+<div v-click>3️⃣ Kun je in de ruimte geluid horen? <span class="bounce text-yellow-300 font-bold inline-block">(Nee!)</span></div>
+<div v-click>4️⃣ Welke planeet heeft ringen? <span class="bounce text-yellow-300 font-bold inline-block">(Saturnus)</span></div>
 </div>
 
 <!--
@@ -390,12 +551,12 @@ transition: slide-up
 Welke spellen spelen we met de hele groep?
 
 <div class="text-2xl mt-8 space-y-4 text-left w-4/5">
-<div v-click>🚀 1. Ballonraket-race</div>
-<div v-click>🌕 2. Maanwandeling-estafette</div>
-<div v-click>☄️ 3. Meteorieten-inslag</div>
-<div v-click>🪐 4. Planeet-rondje (stopdans)</div>
-<div v-click>🧑‍🚀 5. Astronautentraining-parcours</div>
-<div v-click>🛸 6. Ruimteschip redden</div>
+<div v-motion :initial="{ x: -100, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 100 } }">🚀 1. Ballonraket-race</div>
+<div v-motion :initial="{ x: -100, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 220 } }">🌕 2. Maanwandeling-estafette</div>
+<div v-motion :initial="{ x: -100, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 340 } }">☄️ 3. Meteorieten-inslag</div>
+<div v-motion :initial="{ x: -100, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 460 } }">🪐 4. Planeet-rondje (stopdans)</div>
+<div v-motion :initial="{ x: -100, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 580 } }">🧑‍🚀 5. Astronautentraining-parcours</div>
+<div v-motion :initial="{ x: -100, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 700 } }">🛸 6. Ruimteschip redden</div>
 </div>
 
 ---
@@ -447,6 +608,7 @@ transition: zoom
 <div class="nebula" style="--c1: rgba(239,68,68,.25); --c2: rgba(250,204,21,.22);"></div>
 <img src="/assets/star.svg" class="twinkle-img absolute w-12" style="top: 14%; right: 10%;" />
 <img src="/assets/star.svg" class="twinkle-img absolute w-8" style="bottom: 16%; left: 10%; animation-delay: 1s;" />
+<div class="shooting" style="top: 40%; animation-delay: 2.5s;"></div>
 
 **Zo werkt het:**
 
@@ -466,7 +628,7 @@ transition: slide-left
 # Spel 4: Planeet-rondje 🪐
 
 <div class="nebula" style="--c1: rgba(139,92,246,.35); --c2: rgba(59,130,246,.3);"></div>
-<img src="/assets/saturn.svg" class="float-slow absolute w-48" style="bottom: 8%; right: 6%;" />
+<img src="/assets/saturn.svg" class="spin-fast absolute w-40 opacity-80" style="bottom: 8%; right: 6%;" />
 
 **Zo werkt het (stopdans in de ruimte):**
 
@@ -526,10 +688,10 @@ transition: fade
 # 🎨 Knutseltijd: maak je eigen planeet!
 
 <div class="nebula" style="--c1: rgba(244,114,182,.28); --c2: rgba(56,189,248,.25);"></div>
-<img src="/assets/ufo.svg" class="float-slow absolute w-64" style="top: 10%; right: 6%;" />
+<img src="/assets/ufo.svg" class="ufo-fly absolute w-40" style="top: 12%;" />
 <img src="/assets/saturn.svg" class="float absolute w-36 opacity-90" style="bottom: 8%; left: 6%;" />
 
-<div class="text-2xl mt-10 space-y-6">
+<div class="text-2xl mt-10 space-y-6 relative">
 <div v-click>🖌️ Schilder een planeet op een ballon of papier-maché bol</div>
 <div v-click>⭐ Plak sterren op zwart papier</div>
 <div v-click>🚀 Knutsel een raket van een wc-rol</div>
@@ -542,9 +704,23 @@ transition: zoom
 # 🏆 Gefeliciteerd, ruimte-helden!
 
 <div class="nebula" style="--c1: rgba(250,204,21,.3); --c2: rgba(249,115,22,.25);"></div>
-<img src="/assets/trophy.svg" class="float absolute w-48 mx-auto mt-4" />
+<div class="confetti">
+  <span style="left:5%;  background:#f472b6; animation-duration:3.2s;"></span>
+  <span style="left:12%; background:#fde68a; animation-duration:2.7s; animation-delay:.4s;"></span>
+  <span style="left:20%; background:#34d399; animation-duration:3.6s; animation-delay:.9s;"></span>
+  <span style="left:28%; background:#60a5fa; animation-duration:2.9s; animation-delay:.2s;"></span>
+  <span style="left:36%; background:#f87171; animation-duration:3.4s; animation-delay:1.1s;"></span>
+  <span style="left:44%; background:#a78bfa; animation-duration:2.6s; animation-delay:.6s;"></span>
+  <span style="left:52%; background:#fde68a; animation-duration:3.8s; animation-delay:.1s;"></span>
+  <span style="left:60%; background:#4ade80; animation-duration:3s;   animation-delay:1.3s;"></span>
+  <span style="left:68%; background:#f472b6; animation-duration:2.8s; animation-delay:.5s;"></span>
+  <span style="left:76%; background:#60a5fa; animation-duration:3.5s; animation-delay:.8s;"></span>
+  <span style="left:84%; background:#f87171; animation-duration:3.1s; animation-delay:.3s;"></span>
+  <span style="left:92%; background:#a78bfa; animation-duration:2.9s; animation-delay:1s;"></span>
+</div>
+<img src="/assets/trophy.svg" class="float absolute w-48 mx-auto mt-4 left-0 right-0" />
 
-## Jullie krijgen allemaal een <span class="title-gradient">Ruimte-Diploma</span>!
+## Jullie krijgen allemaal een <span class="title-gradient pulse-glow">Ruimte-Diploma</span>!
 
 <div class="text-2xl mt-6" v-click>
 Bedankt voor het meereizen — en wie weet zien we elkaar <span class="text-yellow-300 font-bold">ooit in het echt, in de ruimte!</span> ✨
@@ -559,8 +735,14 @@ transition: slide-left
 <div class="nebula" style="--c1: rgba(139,92,246,.4); --c2: rgba(59,130,246,.35); --c3: rgba(236,72,153,.2);"></div>
 <img src="/assets/galaxy.svg" class="spin-slow absolute w-80 opacity-60" style="top: 50%; left: 50%; transform: translate(-50%, -50%);" />
 <img src="/assets/rocket.svg" class="float absolute w-28" style="top: 12%; right: 12%;" />
+<div class="shooting" style="top: 25%; animation-delay: 1.5s;"></div>
+<div class="shooting" style="top: 70%; animation-delay: 4.5s;"></div>
 
-<div class="text-7xl mt-16 relative">👋 🚀 🌟</div>
+<div class="text-7xl mt-16 relative">
+<span class="twinkle-img inline-block">👋</span>
+<span class="twinkle-img inline-block" style="animation-delay:.5s">🚀</span>
+<span class="twinkle-img inline-block" style="animation-delay:1s">🌟</span>
+</div>
 
 <div class="text-2xl mt-8 opacity-80 relative">KVW De Meern — Thema Ruimte</div>
 
