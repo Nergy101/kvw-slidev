@@ -1,0 +1,223 @@
+/* ===== 🌌 Ruimte-thema: geanimeerde sterrenachtergrond ===== */
+.slidev-page {
+  position: relative;
+  color: #f5f3ff;
+  background-color: #050816;
+  background-image:
+    radial-gradient(1.5px 1.5px at 25px 35px, #ffffff 60%, transparent),
+    radial-gradient(1px 1px at 120px 90px, #cbd5e1 60%, transparent),
+    radial-gradient(1.5px 1.5px at 200px 150px, #ffffff 60%, transparent),
+    radial-gradient(1px 1px at 300px 60px, #e0e7ff 60%, transparent),
+    radial-gradient(2px 2px at 420px 200px, #ffffff 60%, transparent),
+    radial-gradient(1px 1px at 500px 120px, #cbd5e1 60%, transparent),
+    radial-gradient(1.5px 1.5px at 80px 250px, #ffffff 60%, transparent),
+    radial-gradient(1px 1px at 260px 300px, #e0e7ff 60%, transparent),
+    radial-gradient(2px 2px at 480px 320px, #ffffff 60%, transparent),
+    radial-gradient(1px 1px at 350px 260px, #cbd5e1 60%, transparent);
+  background-size: 550px 550px;
+  animation: stardrift 240s linear infinite;
+}
+.slidev-page::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 40px 60px, #ffffff 60%, transparent),
+    radial-gradient(1.5px 1.5px at 150px 30px, #fde68a 60%, transparent),
+    radial-gradient(1px 1px at 220px 140px, #ffffff 60%, transparent),
+    radial-gradient(1.5px 1.5px at 320px 90px, #93c5fd 60%, transparent),
+    radial-gradient(1px 1px at 90px 200px, #ffffff 60%, transparent),
+    radial-gradient(1.5px 1.5px at 280px 240px, #f0abfc 60%, transparent);
+  background-size: 380px 380px;
+  animation: stardrift2 160s linear infinite reverse, twinkle 3.5s ease-in-out infinite alternate;
+}
+.slidev-page::before {
+  content: '';
+  position: absolute;
+  top: 14%;
+  left: -12%;
+  width: 150px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ffffff, transparent);
+  animation: shoot 9s linear infinite;
+  pointer-events: none;
+}
+.slidev-content { position: relative; z-index: 1; }
+
+.slidev-page h1, .slidev-page h2 {
+  color: #fde68a;
+  text-shadow: 0 0 26px rgba(253, 230, 138, 0.5);
+}
+
+/* ===== ✨ hulpelementen & animaties ===== */
+.title-gradient {
+  background: linear-gradient(90deg, #fde68a, #f472b6, #818cf8, #34d399, #fde68a);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 8s linear infinite;
+}
+.nebula {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(34px);
+  background:
+    radial-gradient(ellipse at 25% 20%, var(--c1, rgba(139, 92, 246, 0.35)), transparent 60%),
+    radial-gradient(ellipse at 80% 85%, var(--c2, rgba(59, 130, 246, 0.3)), transparent 55%),
+    radial-gradient(ellipse at 60% 45%, var(--c3, rgba(236, 72, 153, 0.16)), transparent 50%);
+}
+.float       { animation: floaty 6s ease-in-out infinite; }
+.float-slow  { animation: floaty 9s ease-in-out infinite; }
+.float-fast  { animation: floaty 4s ease-in-out infinite; }
+.spin-slow   { animation: spin 42s linear infinite; }
+.spin-fast   { animation: spin 8s linear infinite; }
+/* pop/bounce/launch starten pas echt op het klik-moment (positieve Slidev-classes, werkt o.a. betrouwbaar in Firefox) */
+.pop.slidev-vclick-current, .pop.slidev-vclick-prior       { animation: pop 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+.bounce.slidev-vclick-current, .bounce.slidev-vclick-prior { animation: bounceIn 0.55s cubic-bezier(0.2, 1.8, 0.4, 1) both; }
+.twinkle-img { animation: twinkle 2.4s ease-in-out infinite alternate; }
+.wave  { transform-box: fill-box; transform-origin: 20% 90%; animation: wave 1.6s ease-in-out infinite; }
+.flame { transform-box: fill-box; transform-origin: 50% 0%; animation: flick 0.35s ease-in-out infinite alternate; }
+.wiggle { animation: wiggle 1.4s ease-in-out infinite; }
+.pulse-glow { animation: pulseGlow 2.5s ease-in-out infinite; }
+
+/* vallende ster extra (per slide te plaatsen) */
+.shooting {
+  position: absolute;
+  width: 130px; height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ffffff, transparent);
+  animation: shoot 7s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* warp-ring achter het logo */
+.warp {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 36rem; height: 36rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0 38%, rgba(129, 140, 248, 0.55) 50%, transparent 62% 100%);
+  animation: spin 5s linear infinite;
+  filter: blur(3px);
+  -webkit-mask: radial-gradient(circle, transparent 60%, #000 66%);
+  mask: radial-gradient(circle, transparent 60%, #000 66%);
+  pointer-events: none;
+}
+
+/* zon-puls ring */
+.sun-pulse {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid rgba(253, 224, 71, 0.7);
+  animation: sunPulse 2.6s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes sunPulse {
+  from { transform: scale(0.8); opacity: 1; }
+  to   { transform: scale(1.6); opacity: 0; }
+}
+
+/* maan cirkelt om de aarde */
+.orbit-ring {
+  position: absolute;
+  inset: -3.2rem;
+  animation: spin 10s linear infinite;
+  pointer-events: none;
+}
+.orbit-ring img {
+  position: absolute;
+  top: -1.1rem; left: 50%;
+  width: 2.6rem;
+  margin-left: -1.3rem;
+  animation: spin 10s linear infinite reverse;
+}
+
+/* raket lanceren bij LIFTOFF — start pas op het moment dat v-click de raket toont (current/prior = klik-moment) */
+.launch.slidev-vclick-current, .launch.slidev-vclick-prior { animation: launch 2.4s cubic-bezier(0.55, -0.3, 0.85, 0.4) forwards; will-change: transform, opacity; }
+@keyframes launch {
+  0%   { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+  6%   { transform: translate(-0.6vw, 1.5vh) scale(1.03) rotate(2deg); opacity: 1; }
+  12%  { transform: translate(0.6vw, 0.5vh) scale(1.03) rotate(-2deg); opacity: 1; }
+  25%  { transform: translate(1.5vw, -22vh) scale(0.98) rotate(-5deg); opacity: 1; }
+  80%  { transform: translate(7vw, -105vh) scale(0.55) rotate(-14deg); opacity: 1; }
+  100% { transform: translate(10vw, -135vh) scale(0.35) rotate(-20deg); opacity: 0; }
+}
+
+/* UFO vliegt over het scherm */
+.ufo-fly { animation: ufo-fly 16s linear infinite; }
+@keyframes ufo-fly {
+  from { transform: translateX(-35vw) translateY(0); }
+  50%  { transform: translateX(40vw) translateY(-30px); }
+  to   { transform: translateX(125vw) translateY(0); }
+}
+
+/* zwart gat met draaiende accretion disk */
+.blackhole {
+  position: relative;
+  width: 210px; height: 210px;
+  border-radius: 50%;
+  background: #000;
+  box-shadow: 0 0 70px 12px rgba(168, 85, 247, 0.55), inset 0 0 40px 10px rgba(88, 28, 135, 0.9);
+}
+.blackhole::before {
+  content: '';
+  position: absolute;
+  inset: -34px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg, #f59e0b 60deg, #ef4444 110deg, #a78bfa 180deg, #38bdf8 250deg, transparent 320deg);
+  animation: spin 3.2s linear infinite;
+  filter: blur(7px);
+  -webkit-mask: radial-gradient(circle, transparent 52%, #000 58%);
+  mask: radial-gradient(circle, transparent 52%, #000 58%);
+}
+.blackhole::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  animation: spin 5s linear infinite reverse;
+}
+
+/* confetti */
+.confetti span {
+  position: absolute;
+  top: -20px;
+  width: 10px; height: 16px;
+  border-radius: 2px;
+  animation: confetti-fall linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+@keyframes confetti-fall {
+  to { transform: translateY(115vh) rotate(720deg); }
+}
+
+@keyframes stardrift  { from { background-position: 0 0; } to { background-position: 550px 550px; } }
+@keyframes stardrift2 { from { background-position: 0 0; } to { background-position: -380px 380px; } }
+@keyframes twinkle    { from { opacity: 0.35; } to { opacity: 1; } }
+@keyframes shoot {
+  0%   { transform: translateX(0) rotate(-25deg); opacity: 0; }
+  3%   { opacity: 1; }
+  12%  { transform: translateX(130vw) rotate(-25deg); opacity: 0; }
+  100% { transform: translateX(130vw) rotate(-25deg); opacity: 0; }
+}
+@keyframes shine  { to { background-position: 300% 0; } }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+@keyframes spin   { to { transform: rotate(360deg); } }
+@keyframes pop    { from { transform: scale(0.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes bounceIn { from { transform: scale(0.4) translateY(20px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+@keyframes wave   { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-18deg); } }
+@keyframes flick  { from { transform: scaleY(0.92); } to { transform: scaleY(1.08); } }
+@keyframes wiggle { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+@keyframes pulseGlow {
+  0%, 100% { text-shadow: 0 0 18px rgba(253, 230, 138, 0.4); }
+  50%      { text-shadow: 0 0 46px rgba(253, 230, 138, 0.95); }
+}
