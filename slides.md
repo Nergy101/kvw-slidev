@@ -393,7 +393,9 @@ transition: fade
 # 🌕 De maan
 
 <div class="nebula" style="--c1: rgba(203,213,225,.22); --c2: rgba(99,102,241,.3);"></div>
-<img src="/assets/moon.svg" class="float-slow absolute w-60" style="top: 50%; right: 7%; transform: translateY(-50%);" />
+<div class="absolute" style="top: 50%; right: 7%; transform: translateY(-50%);">
+  <img src="/assets/moon.svg" class="float-slow w-60" />
+</div>
 
 <div class="text-5xl mt-6">
 <span class="twinkle-img inline-block">🌕</span>
@@ -467,7 +469,9 @@ transition: slide-up
 # 🛰️ Satellieten
 
 <div class="nebula" style="--c1: rgba(56,189,248,.25); --c2: rgba(99,102,241,.3);"></div>
-<img src="/assets/satellite.svg" class="float absolute w-72" style="top: 50%; right: 5%; transform: translateY(-50%);" />
+<div class="absolute" style="top: 50%; right: 5%; transform: translateY(-50%);">
+  <img src="/assets/satellite.svg" class="float w-72" />
+</div>
 
 <div class="text-left text-2xl space-y-5 mt-8 w-3/5">
 <div v-click>📡 Zweven om de aarde in een baan</div>
@@ -506,7 +510,9 @@ transition: slide-left
 # 👨‍🚀 Word astronaut!
 
 <div class="nebula" style="--c1: rgba(56,189,248,.28); --c2: rgba(34,197,94,.2);"></div>
-<img src="/assets/astronaut.svg" class="float absolute w-60" style="top: 50%; right: 6%; transform: translateY(-50%);" />
+<div class="absolute" style="top: 50%; right: 6%; transform: translateY(-50%);">
+  <img src="/assets/astronaut.svg" class="float w-60" />
+</div>
 
 Wat moet je daarvoor kunnen?
 
@@ -528,7 +534,9 @@ transition: slide-up
 # ❓ Ruimte-quiz!
 
 <div class="nebula" style="--c1: rgba(163,230,53,.2); --c2: rgba(139,92,246,.3);"></div>
-<img src="/assets/alien.svg" class="wiggle absolute w-48" style="top: 50%; right: 8%; transform: translateY(-50%);" />
+<div class="absolute" style="top: 50%; right: 8%; transform: translateY(-50%);">
+  <img src="/assets/alien.svg" class="wiggle w-48" />
+</div>
 
 <div class="text-2xl mt-6 space-y-6 text-left w-3/4">
 <div v-click class="bounce">1️⃣ Hoeveel planeten draaien om de zon? <span class="text-yellow-300 font-bold">(8)</span></div>
@@ -736,7 +744,9 @@ transition: slide-left
 # 🌌 Tot ziens, astronauten!
 
 <div class="nebula" style="--c1: rgba(139,92,246,.4); --c2: rgba(59,130,246,.35); --c3: rgba(236,72,153,.2);"></div>
-<img src="/assets/galaxy.svg" class="spin-slow absolute w-80 opacity-60" style="top: 50%; left: 50%; transform: translate(-50%, -50%);" />
+<div class="absolute w-80 opacity-60" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+  <img src="/assets/galaxy.svg" class="spin-slow w-full" />
+</div>
 <img src="/assets/rocket.svg" class="float absolute w-28" style="top: 12%; right: 12%;" />
 <div class="shooting" style="top: 25%; animation-delay: 1.5s;"></div>
 <div class="shooting" style="top: 70%; animation-delay: 4.5s;"></div>
