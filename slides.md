@@ -265,14 +265,14 @@ transition: zoom
 # 🚀 TELLEN MAAR: de raketlancering!
 
 <div class="nebula" style="--c1: rgba(249,115,22,.3); --c2: rgba(239,68,68,.22); --c3: rgba(253,224,71,.15);"></div>
-<img v-click src="/assets/rocket.svg" class="launch absolute w-52" style="bottom: 6%; left: 6%;" />
+<img v-click="4" src="/assets/rocket.svg" class="launch absolute w-52" style="bottom: 6%; left: 6%;" />
 
 <div class="text-center relative">
 <div class="text-7xl font-bold mt-14">
-<span v-click class="bounce inline-block">3...</span>
-<span v-click class="bounce inline-block">2...</span>
-<span v-click class="bounce inline-block">1...</span>
-<span v-click class="pop text-orange-400 inline-block" style="text-shadow: 0 0 34px rgba(251,146,60,.9);">LIFTOFF! 🎉</span>
+<span v-click="1" class="bounce inline-block">3...</span>
+<span v-click="2" class="bounce inline-block">2...</span>
+<span v-click="3" class="bounce inline-block">1...</span>
+<span v-click="4" class="pop text-orange-400 inline-block" style="text-shadow: 0 0 34px rgba(251,146,60,.9);">LIFTOFF! 🎉</span>
 </div>
 </div>
 
