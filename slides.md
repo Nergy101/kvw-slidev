@@ -153,11 +153,14 @@ css: unocss
 }
 
 /* raket lanceren bij LIFTOFF — start pas op het moment dat v-click de raket toont */
-.launch:not(.slidev-vclick-hidden) { animation: launch 1.8s cubic-bezier(0.5, -0.2, 0.7, 0.4) forwards; will-change: transform, opacity; }
+.launch:not(.slidev-vclick-hidden) { animation: launch 2.4s cubic-bezier(0.55, -0.3, 0.85, 0.4) forwards; will-change: transform, opacity; }
 @keyframes launch {
   0%   { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
-  15%  { transform: translate(1vw, -12vh) scale(1.02) rotate(-3deg); opacity: 1; }
-  100% { transform: translate(7vw, -90vh) scale(0.45) rotate(-14deg); opacity: 0; }
+  6%   { transform: translate(-0.6vw, 1.5vh) scale(1.03) rotate(2deg); opacity: 1; }
+  12%  { transform: translate(0.6vw, 0.5vh) scale(1.03) rotate(-2deg); opacity: 1; }
+  25%  { transform: translate(1.5vw, -22vh) scale(0.98) rotate(-5deg); opacity: 1; }
+  80%  { transform: translate(7vw, -105vh) scale(0.55) rotate(-14deg); opacity: 1; }
+  100% { transform: translate(10vw, -135vh) scale(0.35) rotate(-20deg); opacity: 0; }
 }
 
 /* UFO vliegt over het scherm */
@@ -487,7 +490,6 @@ transition: zoom
 # 🚀 TELLEN MAAR: de raketlancering!
 
 <div class="nebula" style="--c1: rgba(249,115,22,.3); --c2: rgba(239,68,68,.22); --c3: rgba(253,224,71,.15);"></div>
-<img src="/assets/rocket.svg" class="float-fast absolute w-24 opacity-70" style="top: 16%; left: 10%;" />
 <img v-click src="/assets/rocket.svg" class="launch absolute w-52" style="bottom: 6%; left: 6%;" />
 
 <div class="text-center relative">
