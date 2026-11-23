@@ -14,13 +14,28 @@
       <stop offset="100%" stop-color="#a5f3fc" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <path d="M105 95 L70 180 L190 180 L155 95 Z" fill="url(#beam)"/>
-  <path d="M85 70 A45 42 0 0 1 175 70 Z" fill="url(#glass)"/>
-  <ellipse cx="130" cy="95" rx="95" ry="28" fill="url(#hull)"/>
-  <ellipse cx="130" cy="88" rx="95" ry="24" fill="#cbd5e1"/>
-  <circle cx="70" cy="95" r="7" fill="#f87171"/>
-  <circle cx="105" cy="102" r="7" fill="#facc15"/>
-  <circle cx="140" cy="104" r="7" fill="#4ade80"/>
-  <circle cx="175" cy="100" r="7" fill="#60a5fa"/>
-  <circle cx="205" cy="93" r="7" fill="#f472b6"/>
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -10; 0 0" dur="3s" repeatCount="indefinite"/>
+    <path d="M105 95 L70 180 L190 180 L155 95 Z" fill="url(#beam)">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M85 70 A45 42 0 0 1 175 70 Z" fill="url(#glass)"/>
+    <ellipse cx="130" cy="95" rx="95" ry="28" fill="url(#hull)"/>
+    <ellipse cx="130" cy="88" rx="95" ry="24" fill="#cbd5e1"/>
+    <circle cx="70" cy="95" r="7" fill="#f87171">
+      <animate attributeName="opacity" values="1;0.15;1" dur="0.9s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="105" cy="102" r="7" fill="#facc15">
+      <animate attributeName="opacity" values="1;0.15;1" dur="0.9s" begin="0.18s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="140" cy="104" r="7" fill="#4ade80">
+      <animate attributeName="opacity" values="1;0.15;1" dur="0.9s" begin="0.36s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="175" cy="100" r="7" fill="#60a5fa">
+      <animate attributeName="opacity" values="1;0.15;1" dur="0.9s" begin="0.54s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="205" cy="93" r="7" fill="#f472b6">
+      <animate attributeName="opacity" values="1;0.15;1" dur="0.9s" begin="0.72s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 </svg>

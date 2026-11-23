@@ -11,6 +11,7 @@
     </linearGradient>
   </defs>
   <g stroke="url(#ray)" stroke-width="7" stroke-linecap="round">
+    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="40s" repeatCount="indefinite"/>
     <line x1="100" y1="8" x2="100" y2="34"/>
     <line x1="100" y1="8" x2="100" y2="34" transform="rotate(30 100 100)"/>
     <line x1="100" y1="8" x2="100" y2="34" transform="rotate(60 100 100)"/>

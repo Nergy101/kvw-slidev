@@ -10,6 +10,7 @@
     </filter>
   </defs>
   <g filter="url(#blur)">
+    <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="40s" repeatCount="indefinite"/>
     <ellipse cx="200" cy="200" rx="180" ry="60" fill="none" stroke="#a78bfa" stroke-width="26" opacity="0.5" transform="rotate(-25 200 200)"/>
     <ellipse cx="200" cy="200" rx="150" ry="48" fill="none" stroke="#60a5fa" stroke-width="22" opacity="0.45" transform="rotate(20 200 200)"/>
     <ellipse cx="200" cy="200" rx="110" ry="34" fill="none" stroke="#f472b6" stroke-width="18" opacity="0.4" transform="rotate(-10 200 200)"/>

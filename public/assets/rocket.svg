@@ -11,8 +11,12 @@
       <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <path class="flame" d="M100 250 C82 285 84 315 100 338 C116 315 118 285 100 250 Z" fill="url(#flame)"/>
-  <path d="M100 255 C92 280 93 300 100 316 C107 300 108 280 100 255 Z" fill="#fde047" opacity="0.9"/>
+  <path class="flame" d="M100 250 C82 285 84 315 100 338 C116 315 118 285 100 250 Z" fill="url(#flame)">
+    <animate attributeName="opacity" values="1;0.6;1" dur="0.35s" repeatCount="indefinite"/>
+  </path>
+  <path d="M100 255 C92 280 93 300 100 316 C107 300 108 280 100 255 Z" fill="#fde047" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.4;0.9" dur="0.28s" begin="0.1s" repeatCount="indefinite"/>
+  </path>
   <path d="M62 200 C40 225 38 255 44 272 L70 250 Z" fill="#ef4444"/>
   <path d="M138 200 C160 225 162 255 156 272 L130 250 Z" fill="#ef4444"/>
   <path d="M100 20 C130 60 138 120 138 190 C138 225 128 250 100 250 C72 250 62 225 62 190 C62 120 70 60 100 20 Z" fill="url(#body)"/>

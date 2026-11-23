@@ -18,6 +18,7 @@
   <rect x="72" y="110" width="76" height="85" rx="26" fill="url(#suit)"/>
   <rect x="48" y="118" width="22" height="58" rx="11" fill="url(#suit)" transform="rotate(12 59 118)"/>
   <g class="wave">
+    <animateTransform attributeName="transform" type="rotate" values="-14 161 120; 16 161 120; -14 161 120" dur="1.6s" repeatCount="indefinite"/>
     <rect x="150" y="70" width="22" height="60" rx="11" fill="url(#suit)" transform="rotate(35 161 120)"/>
     <circle cx="176" cy="66" r="13" fill="#e2e8f0"/>
   </g>

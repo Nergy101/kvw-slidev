@@ -7,12 +7,15 @@
     </radialGradient>
   </defs>
   <circle cx="100" cy="100" r="82" fill="#60a5fa" opacity="0.3"/>
-  <circle cx="100" cy="100" r="70" fill="url(#ocean)"/>
-  <path d="M60 70 q20 -18 42 -8 q14 6 8 20 q-6 12 -24 10 q-22 -2 -26 -22 Z" fill="#4ade80"/>
-  <path d="M120 110 q22 -6 30 10 q6 14 -8 24 q-16 10 -28 -4 q-10 -14 6 -30 Z" fill="#22c55e"/>
-  <path d="M70 120 q14 -4 20 8 q4 10 -6 16 q-14 6 -20 -6 q-4 -10 6 -18 Z" fill="#4ade80"/>
-  <ellipse cx="80" cy="95" rx="18" ry="6" fill="#fff" opacity="0.7"/>
-  <ellipse cx="125" cy="70" rx="14" ry="5" fill="#fff" opacity="0.6"/>
-  <ellipse cx="105" cy="140" rx="20" ry="6" fill="#fff" opacity="0.55"/>
-  <circle cx="100" cy="100" r="70" fill="none" stroke="#0c1a3a" stroke-opacity="0.35" stroke-width="6"/>
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="45s" repeatCount="indefinite"/>
+    <circle cx="100" cy="100" r="70" fill="url(#ocean)"/>
+    <path d="M60 70 q20 -18 42 -8 q14 6 8 20 q-6 12 -24 10 q-22 -2 -26 -22 Z" fill="#4ade80"/>
+    <path d="M120 110 q22 -6 30 10 q6 14 -8 24 q-16 10 -28 -4 q-10 -14 6 -30 Z" fill="#22c55e"/>
+    <path d="M70 120 q14 -4 20 8 q4 10 -6 16 q-14 6 -20 -6 q-4 -10 6 -18 Z" fill="#4ade80"/>
+    <ellipse cx="80" cy="95" rx="18" ry="6" fill="#fff" opacity="0.7"/>
+    <ellipse cx="125" cy="70" rx="14" ry="5" fill="#fff" opacity="0.6"/>
+    <ellipse cx="105" cy="140" rx="20" ry="6" fill="#fff" opacity="0.55"/>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#0c1a3a" stroke-opacity="0.35" stroke-width="6"/>
+  </g>
 </svg>

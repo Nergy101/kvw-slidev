@@ -631,7 +631,7 @@ transition: slide-left
 # Spel 4: Planeet-rondje 🪐
 
 <div class="nebula" style="--c1: rgba(139,92,246,.35); --c2: rgba(59,130,246,.3);"></div>
-<img src="/assets/saturn.svg" class="spin-fast absolute w-40 opacity-80" style="bottom: 8%; right: 6%;" />
+<img src="/assets/saturn.svg" class="float absolute w-44 opacity-90" style="bottom: 8%; right: 6%;" />
 
 **Zo werkt het (stopdans in de ruimte):**
 

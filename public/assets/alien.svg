@@ -10,8 +10,12 @@
   <circle cx="70" cy="15" r="8" fill="#a3e635"/>
   <circle cx="130" cy="15" r="8" fill="#a3e635"/>
   <ellipse cx="100" cy="85" rx="62" ry="55" fill="url(#skin)"/>
-  <ellipse cx="78" cy="78" rx="14" ry="20" fill="#0f172a"/>
-  <ellipse cx="122" cy="78" rx="14" ry="20" fill="#0f172a"/>
+  <ellipse cx="78" cy="78" rx="14" ry="20" fill="#0f172a">
+    <animate attributeName="ry" values="20;20;2;20;20" keyTimes="0;0.88;0.92;0.96;1" dur="3.5s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="122" cy="78" rx="14" ry="20" fill="#0f172a">
+    <animate attributeName="ry" values="20;20;2;20;20" keyTimes="0;0.88;0.92;0.96;1" dur="3.5s" repeatCount="indefinite"/>
+  </ellipse>
   <circle cx="82" cy="70" r="5" fill="#fff"/>
   <circle cx="126" cy="70" r="5" fill="#fff"/>
   <path d="M78 112 Q100 128 122 112" stroke="#0f172a" stroke-width="5" fill="none" stroke-linecap="round"/>
