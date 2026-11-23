@@ -13,7 +13,7 @@
     </linearGradient>
   </defs>
   <g transform="rotate(-18 160 110)">
-    <animateTransform attributeName="transform" type="rotate" additive="sum" from="0 160 110" to="360 160 110" dur="14s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="rotate" additive="sum" values="-7 160 110; 7 160 110; -7 160 110" dur="3.2s" repeatCount="indefinite"/>
     <ellipse cx="160" cy="110" rx="130" ry="34" fill="none" stroke="url(#ring)" stroke-width="16" opacity="0.55"/>
     <circle cx="160" cy="110" r="62" fill="url(#band)"/>
     <path d="M100 95 q60 -14 120 0" stroke="#d9a05f" stroke-width="5" fill="none" opacity="0.6"/>
