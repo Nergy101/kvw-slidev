@@ -89,8 +89,9 @@ css: unocss
 .float-fast  { animation: floaty 4s ease-in-out infinite; }
 .spin-slow   { animation: spin 42s linear infinite; }
 .spin-fast   { animation: spin 8s linear infinite; }
-.pop         { animation: pop 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
-.bounce      { animation: bounceIn 0.55s cubic-bezier(0.2, 1.8, 0.4, 1) both; }
+/* pop/bounce starten pas echt zodra v-click het element toont (anders lopen ze al af terwijl het verborgen is) */
+.pop:not(.slidev-vclick-hidden)    { animation: pop 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+.bounce:not(.slidev-vclick-hidden) { animation: bounceIn 0.55s cubic-bezier(0.2, 1.8, 0.4, 1) both; }
 .twinkle-img { animation: twinkle 2.4s ease-in-out infinite alternate; }
 .wave  { transform-box: fill-box; transform-origin: 20% 90%; animation: wave 1.6s ease-in-out infinite; }
 .flame { transform-box: fill-box; transform-origin: 50% 0%; animation: flick 0.35s ease-in-out infinite alternate; }
@@ -151,11 +152,12 @@ css: unocss
   animation: spin 10s linear infinite reverse;
 }
 
-/* raket lanceren bij LIFTOFF */
-.launch { animation: launch 1.8s cubic-bezier(0.5, -0.2, 0.7, 0.4) forwards; }
+/* raket lanceren bij LIFTOFF — start pas op het moment dat v-click de raket toont */
+.launch:not(.slidev-vclick-hidden) { animation: launch 1.8s cubic-bezier(0.5, -0.2, 0.7, 0.4) forwards; will-change: transform, opacity; }
 @keyframes launch {
-  0%   { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(-75vh) scale(0.55) rotate(-10deg); opacity: 0; }
+  0%   { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+  15%  { transform: translate(1vw, -12vh) scale(1.02) rotate(-3deg); opacity: 1; }
+  100% { transform: translate(7vw, -90vh) scale(0.45) rotate(-14deg); opacity: 0; }
 }
 
 /* UFO vliegt over het scherm */
@@ -481,6 +483,7 @@ transition: zoom
 # 🚀 TELLEN MAAR: de raketlancering!
 
 <div class="nebula" style="--c1: rgba(249,115,22,.3); --c2: rgba(239,68,68,.22); --c3: rgba(253,224,71,.15);"></div>
+<img src="/assets/rocket.svg" class="float-fast absolute w-24 opacity-70" style="top: 16%; left: 10%;" />
 <img v-click src="/assets/rocket.svg" class="launch absolute w-52" style="bottom: 6%; left: 6%;" />
 
 <div class="text-center relative">
@@ -528,10 +531,10 @@ transition: slide-up
 <img src="/assets/alien.svg" class="wiggle absolute w-48" style="top: 50%; right: 8%; transform: translateY(-50%);" />
 
 <div class="text-2xl mt-6 space-y-6 text-left w-3/4">
-<div v-click>1️⃣ Hoeveel planeten draaien om de zon? <span class="bounce text-yellow-300 font-bold inline-block">(8)</span></div>
-<div v-click>2️⃣ Hoe heet de rode planeet? <span class="bounce text-yellow-300 font-bold inline-block">(Mars)</span></div>
-<div v-click>3️⃣ Kun je in de ruimte geluid horen? <span class="bounce text-yellow-300 font-bold inline-block">(Nee!)</span></div>
-<div v-click>4️⃣ Welke planeet heeft ringen? <span class="bounce text-yellow-300 font-bold inline-block">(Saturnus)</span></div>
+<div v-click class="bounce">1️⃣ Hoeveel planeten draaien om de zon? <span class="text-yellow-300 font-bold">(8)</span></div>
+<div v-click class="bounce">2️⃣ Hoe heet de rode planeet? <span class="text-yellow-300 font-bold">(Mars)</span></div>
+<div v-click class="bounce">3️⃣ Kun je in de ruimte geluid horen? <span class="text-yellow-300 font-bold">(Nee!)</span></div>
+<div v-click class="bounce">4️⃣ Welke planeet heeft ringen? <span class="text-yellow-300 font-bold">(Saturnus)</span></div>
 </div>
 
 <!--
