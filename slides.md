@@ -265,6 +265,7 @@ transition: zoom
 # 🚀 TELLEN MAAR: de raketlancering!
 
 <div class="nebula" style="--c1: rgba(249,115,22,.3); --c2: rgba(239,68,68,.22); --c3: rgba(253,224,71,.15);"></div>
+<img v-click-hide="4" src="/assets/rocket.svg" class="float-fast absolute w-52" style="bottom: 6%; left: 6%;" />
 <img v-click="4" src="/assets/rocket.svg" class="launch absolute w-52" style="bottom: 6%; left: 6%;" />
 
 <div class="text-center relative">
